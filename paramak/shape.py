@@ -15,30 +15,26 @@ from cadquery import exporters
 
 class Shape:
     """A shape object that represents a 3d volume and can have materials and
-       neutronics tallies assigned. Shape objects are not intended to be used
-       directly by the user but provide basic functionality for user facing
-       classes that inherit from Shape.
+    neutronics tallies assigned. Shape objects are not intended to be used
+    directly by the user but provide basic functionality for user facing
+    classes that inherit from Shape.
 
-       :param points: The x, y, z coordinates of points that make up the shape
-       :type points: a list of (x, y, z) tuples where x, y, z are floats
-       :param name: the name of the shape, used in the graph legend by export_html
-       :type name: str
-       :param color: the color to use when exporting as html graphs or png images
-       :type color: Red, Green, Blue, [Alpha] values. RGB and RGBA are sequences of,
-        3 or 4 floats respectively each in the range 0-1
-       :param material_tag: the name of the shape, used in the neutronics description
-       :type material_tag: str
-       :param stp_filename: the filename to save the step file
-       :type stp_filename: str
-       :param azimuth_placement_angle: the azimuth angle(s) to when positioning the
-        shape. If a list of angles is provided the shape is duplicated at all angles
-       :type azimuth_placement_angle: float or list of floats
-       :param workplane: The orientation of the CadQuery workplane. Options are XY, YZ, XZ
-       :type workplane: str
+    Args:
+        points (list of (x, y, z) tuples where x, y, z are floats): the x, y, z
+            coordinates of points that make up the shape.
+        name (str): the name of the shape, used in the graph legend by export_html
+        color (RGB and RGBA sequences of floats each in the range 0-1): the color to 
+            use when exporting as html graphs or png images
+        material_tag (str): the name of the shape, used in the neutronics description
+        stp_filename (str): the filename to save the stp file
+        azimuth_placement_angle (float or list of floats): the azimuth placement
+            angle(s) to use when positioning the shape. If a list of angles is provided
+            the shape is duplicated at all angles
+        workplane (str): the orientation of the CadQuery workplane. Options are XY, YZ, XZ
 
-       :return: a shape object that has generic functionality
-       :rtype: paramak shape object
-       """
+    Returns:
+        a shape object that has generic functionality: a paramak shape object
+    """
 
     def __init__(
         self,
